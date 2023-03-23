@@ -46,3 +46,24 @@ CREATE TABLE prior_post_flight (
     Overall_Satisfaction VARCHAR(40)
 );
 
+CREATE TABLE sat_scores (
+    Passenger_ID INT,
+    Gender VARCHAR(10),
+    Age INT,
+    Online_Booking INT,
+    Online_Boarding INT,
+    CheckIn_Service INT,
+    Dep_Arr_Time_Convenient INT,
+    Gate_Location INT,
+    Baggage_Handling INT,
+    Onboard_Service INT,
+    Seat_Comfort INT,
+    Leg_Room INT,
+    Cleanliness INT,
+    Food_Drink INT,
+    Inflight_Entertainment INT,
+    Inflight_WiFi INT,
+    Inflight_Service INT,
+    Avg_Sat_Score NUMERIC(5,2),
+    Customer_Sat VARCHAR(40)
+);
