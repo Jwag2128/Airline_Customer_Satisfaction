@@ -9,6 +9,14 @@ CREATE TABLE main_demographics (
     Overall_Satisfaction VARCHAR(40)
 );
 
+SELECT * FROM Cust_Sat_Data;
+
+INSERT INTO main_demographics (Passenger_ID, Gender, Age, Customer_Type, Travel_Type, Travel_Class, Flight_Distance, Overall_Satisfaction)
+SELECT Passenger_ID, Gender, Age, Customer_Type, Travel_Type, Travel_Class, Flight_Distance, Overall_Satisfaction
+FROM Cust_Sat_Data;
+
+SELECT * FROM main_demographics;
+
 CREATE TABLE flight_details (
     Flight_Distance INT,
     Dep_Arr_Time_Convenient INT,
@@ -67,3 +75,43 @@ CREATE TABLE sat_scores (
     Avg_Sat_Score NUMERIC(5,2),
     Customer_Sat VARCHAR(40)
 );
+
+INSERT INTO flight_details (Flight_Distance, Dep_Arr_Time_Convenient, Departure_Delay_Minutes, Arrival_Delay_Minutes, Overall_Satisfaction)
+SELECT Flight_Distance, Dep_Arr_Time_Convenient, Departure_Delay_Minutes, Arrival_Delay_Minutes, Overall_Satisfaction
+FROM Cust_Sat_Data;
+
+SELECT * FROM flight_details;
+
+INSERT INTO inflight_details (Gender, Age, Travel_Class, Inflight_WiFi, Food_Drink, Seat_Comfort, Inflight_Entertainment, Onboard_Service, Leg_Room, Inflight_Service, Cleanliness, Overall_Satisfaction)
+SELECT Gender, Age, Travel_Class, Inflight_WiFi, Food_Drink, Seat_Comfort, Inflight_Entertainment, Onboard_Service, Leg_Room, Inflight_Service, Cleanliness, Overall_Satisfaction
+FROM Cust_Sat_Data;
+
+SELECT * FROM inflight_details;
+
+INSERT INTO prior_post_flight (Gender, Age, Customer_Type, Travel_Type, Travel_Class, Online_Booking, Gate_Location, Online_Boarding, CheckIn_Service, Baggage_Handling, Overall_Satisfaction)
+SELECT Gender, Age, Customer_Type, Travel_Type, Travel_Class, Online_Booking, Gate_Location, Online_Boarding, CheckIn_Service, Baggage_Handling, Overall_Satisfaction
+FROM Cust_Sat_Data;
+
+SELECT * FROM prior_post_flight;
+
+INSERT INTO sat_scores (
+	Passenger_ID, Gender, Age,
+    Online_Booking, Online_Boarding,
+    CheckIn_Service, Dep_Arr_Time_Convenient,
+    Gate_Location, Baggage_Handling, Onboard_Service,
+    Seat_Comfort, Leg_Room, Cleanliness,
+    Food_Drink, Inflight_Entertainment, Inflight_WiFi,
+    Inflight_Service,
+    Avg_Sat_Score, Customer_Sat
+)
+SELECT Passenger_ID, Gender, Age,
+    Online_Booking, Online_Boarding,
+    CheckIn_Service, Dep_Arr_Time_Convenient,
+    Gate_Location, Baggage_Handling, Onboard_Service,
+    Seat_Comfort, Leg_Room, Cleanliness,
+    Food_Drink, Inflight_Entertainment, Inflight_WiFi,
+    Inflight_Service,
+    Avg_Sat_Score, Customer_Sat
+FROM Cust_Sat_Data;
+
+SELECT * FROM sat_scores;
