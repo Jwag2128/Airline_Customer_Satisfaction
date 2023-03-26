@@ -115,3 +115,6 @@ SELECT Passenger_ID, Gender, Age,
 FROM Cust_Sat_Data;
 
 SELECT * FROM sat_scores;
+
+SELECT * FROM sat_scores
+WHERE Gender = 'Male' AND Age > 30;
